@@ -2,6 +2,6 @@
 title: "Frida Rivera"
 ---
 
-This is a Quarto website.
+Welcome to my website!
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+I'm Frida Rivera and I'm an undergraduate mechanical engineering student at California Polytechnic University San Luis Obispo. I am also the composites lead of Cal Poly Racing's Baja SAE team!
