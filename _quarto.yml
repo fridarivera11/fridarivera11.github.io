@@ -12,9 +12,11 @@ website:
       - text: "Projects"
         menu:
           - text: "Ship Wrecks"
-            href: project.html
+            href: ship-wrecks
           - text: "Parental Leave"
+            href: parental-leave
           - text: "UK Baby Names"
+            href: UK-baby-names
 
 format:
   html:
