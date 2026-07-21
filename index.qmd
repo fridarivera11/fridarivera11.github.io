@@ -1,5 +1,5 @@
 ---
-title: "fridarivera11.github.io"
+title: "Frida Rivera"
 ---
 
 This is a Quarto website.
