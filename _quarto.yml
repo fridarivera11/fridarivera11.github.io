@@ -5,10 +5,16 @@ project:
 website:
   title: "fridarivera11.github.io"
   navbar:
-    left:
+    right:
       - href: index.qmd
         text: Home
       - about.qmd
+      - text: "Projects"
+        menu:
+          - text: "Ship Wrecks"
+            href: project.html
+          - text: "Parental Leave"
+          - text: "UK Baby Names"
 
 format:
   html:

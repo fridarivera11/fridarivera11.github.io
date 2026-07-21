@@ -1,0 +1,71 @@
+---
+title: "Wreck Inventory in Ireland"
+author: "Frida Rivera"
+date: June 30, 2026
+format:
+ html:
+   embed-resources: true
+   code-fold: true
+execute:
+ warning: false
+ message: false
+
+---
+
+
+```{r}
+library(tidyverse)
+library(praise)
+```
+
+
+```{r}
+wreck_inventory <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2026/2026-06-30/wreck_inventory.csv')|>
+    mutate(year2 = as.numeric(str_extract(descriptive_date, "\\d{4}"))) |>
+    mutate(century = floor(year2 / 100) * 100)
+```
+
+
+```{r}
+wreck_inventory |>
+    ggplot(aes(x = classification)) + 
+    geom_bar()
+```
+
+
+```{r}
+wreck2 <- wreck_inventory |>
+    group_by(classification) |>
+    mutate(count = n()) |>
+    filter(count >= 50) |>
+    filter(classification != "Unknown")
+```
+
+
+```{r}
+wreck2 |>
+    ggplot(aes(x = classification, fill = classification)) +
+    geom_bar() +
+    labs(x = "", y = "") +
+    theme_minimal() +
+    theme(axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1),
+        legend.position = "none") +
+    facet_wrap(~century)
+```
+
+```{r}
+wreck_inventory |>
+ count(wreck_name) |>        
+ filter(n > 50) |>
+ filter(wreck_name != "Unknown") |>
+ mutate(n_dots = n %/% 10) |>
+ uncount(n_dots)  |>
+     ggplot(aes(x = wreck_name)) +
+   geom_dotplot(binwidth = .5) +
+   coord_flip()
+```
+
+
+```{r}
+praise()
+```

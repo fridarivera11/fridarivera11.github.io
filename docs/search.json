@@ -12,5 +12,12 @@
     "title": "About",
     "section": "",
     "text": "About this site"
+  },
+  {
+    "objectID": "UK-baby-names.html",
+    "href": "UK-baby-names.html",
+    "title": "UK baby names",
+    "section": "",
+    "text": "here are some words so that i have some words somewhere.\n\nlibrary(tidyverse)\n\n\nengland_wales_names &lt;- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2026/2026-06-16/england_wales_names.csv')\nni_names &lt;- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2026/2026-06-16/ni_names.csv')\nscotland_names &lt;- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2026/2026-06-16/scotland_names.csv')\n\n\nni_names |&gt;\n    filter(Name %in% c(\"Frida\", \"Frieda\", \"Frances\", \"Nathalie\", \"Natalie\", \"Sam\")) |&gt;\n    ggplot(aes(x =  Year, y = Number, shape = Sex)) +\n    geom_line(aes(color = Name)) +\n    geom_point(color = \"purple\") +\n    labs(title = \"Baby Names\")"
   }
 ]
