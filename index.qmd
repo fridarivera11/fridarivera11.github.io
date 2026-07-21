@@ -1,5 +1,18 @@
 ---
 title: "Frida Rivera"
+about: 
+  template: jolla
+  image-shape: round
+  image-width: 17em
+  links:
+    - text: LinkedIn
+      href: https://www.linkedin.com/in/samanthacsik/
+      target: _blank
+    - text: GitHub
+      href: https://github.com/fridarivera11
+      target: _blank 
+    - text: Email
+      href: friver09@calpoly.edu
 ---
 
 Welcome to my website!
