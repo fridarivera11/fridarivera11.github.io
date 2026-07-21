@@ -1,6 +1,15 @@
 ---
-title: "Untitled"
-format: html
+title: "European Parental Leave Policies"
+author: "Frida Rivera"
+date: July 3, 2026
+format:
+ html:
+   embed-resources: true
+   code-fold: true
+execute:
+ warning: false
+ message: false
+
 ---
 
 
