@@ -6,7 +6,7 @@ about:
   image-width: 17em
   links:
     - text: LinkedIn
-      href: https://www.linkedin.com/in/samanthacsik/
+      href: https://www.linkedin.com/in/frida-rivera11
       target: _blank
     - text: GitHub
       href: https://github.com/fridarivera11
