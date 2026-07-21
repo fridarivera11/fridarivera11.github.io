@@ -12,7 +12,7 @@ about:
       href: https://github.com/fridarivera11
       target: _blank 
     - text: Email
-      href: friver09@calpoly.edu
+      href: mailto:friver09@calpoly.edu
 ---
 
 Welcome to my website!
