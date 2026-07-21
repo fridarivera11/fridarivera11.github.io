@@ -17,4 +17,4 @@ about:
 
 Welcome to my website!
 
-Hi! I'm Frida Rivera and I'm an undergraduate mechanical engineering student at California Polytechnic University San Luis Obispo. I am also the composites lead of Cal Poly Racing's Baja SAE team!
+Hi! I'm Frida Rivera and I'm an undergraduate mechanical engineering student at California Polytechnic University San Luis Obispo. I am also the composites lead of <a href = "https://www.calpolyracing.org/" target = "_blank">Cal Poly Racing's Baja SAE team</a>!
