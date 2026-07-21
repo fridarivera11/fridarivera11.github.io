@@ -21,15 +21,17 @@ eplp <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidyt
 
 ```{r}
 europe <- ne_countries(continent = "europe", returnclass = "sf")
+yrs <- sort(unique(eplp$year))
 
 p <- europe |>
     mutate(country2 = ifelse(iso_a2_eh == "GB", "UK", iso_a2_eh)) |>
-    tidyr::crossing(year = year) |>
-    left_join(eplp, by = c("country2" = "country")) |>
+    tidyr::expand_grid(year = yrs) |>
+    st_as_sf() |>
+    left_join(eplp, by = c("country2" = "country", "year")) |>
     ggplot() +
     geom_sf(aes(fill = jp_ld_m)) +
     coord_sf(xlim = c(-10, 45), ylim = c(27, 82)) +
-    transition_states(year, transition_length = 0, state_length = 1) +
+    transition_states(year, transition_length = 0, state_length = 4) +
     labs(title = "Year: {closest_state}")
 
 animate(p)
