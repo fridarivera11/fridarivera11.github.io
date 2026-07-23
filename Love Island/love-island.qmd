@@ -11,6 +11,7 @@ execute:
  message: false
 
 ---
+This data was extracted from Wikipedia Love Island USA all seasons. Much of this code was written by Emil Hviltfeldt.
 
 ```{r}
 library(tidyverse)
@@ -100,12 +101,7 @@ write_csv(li_data,"li_data.csv")
 
 ```
 
-
-```{r}
-
-chart_graph(li_data)
-```
-
+These plots show the coupling between contestants on the show each season.
 
 ```{r}
 set.seed(47)
