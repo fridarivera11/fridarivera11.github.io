@@ -17,6 +17,8 @@ website:
             href: parental-leave.html
           - text: "UK Baby Names"
             href: UK-baby-names.html
+          - text: "Love Island USA"
+            href: love-island.html
 
 format:
   html:

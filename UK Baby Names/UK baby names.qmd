@@ -1,16 +1,14 @@
 ---
-title: "UK Baby Names"
-author: "Frida Rivera"
-date: June 26, 2026
-format:
- html:
-   embed-resources: true
-   code-fold: true
+title: "UK baby names"
+format: 
+    html:
+        embed-resources: true
 execute:
- warning: false
- message: false
-
+    warning: false
+    message: false
 ---
+
+here are some words so that i have some words somewhere.
 
 ```{r}
 library(tidyverse)
