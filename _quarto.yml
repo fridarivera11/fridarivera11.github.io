@@ -18,7 +18,7 @@ website:
           - text: "UK Baby Names"
             href: UK-baby-names.html
           - text: "Love Island USA"
-            href: love-island.html
+            href: Love Island/love-island.html
 
 format:
   html:
