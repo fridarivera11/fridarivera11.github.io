@@ -11,7 +11,7 @@ execute:
  message: false
 
 ---
-This data was extracted from Wikipedia Love Island USA all seasons. Much of this code was written by Emil Hviltfeldt.
+This data was extracted from Wikipedia Love Island USA all seasons. Much of this code was written by Emil Hviltfeldt in his <a href = "https://emilhvitfeldt.com/post/love-island-connections/" target ="_blank">Love Island Connections</a> blog.
 
 ```{r}
 library(tidyverse)
