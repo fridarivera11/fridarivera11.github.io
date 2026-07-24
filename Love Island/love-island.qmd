@@ -103,16 +103,6 @@ write_csv(li_data,"li_data.csv")
 
 These plots show the coupling between contestants on the show each season.
 
-```{r}
-set.seed(47)
-for (season in sort(unique(li_data$season))) {
- cat("\n\n## Season", season, "\n\n")
- print(chart_graph(li_data[li_data$season == season, ]))
-}
-
-chart_graph(li_data |> filter(season == 8))
-```
-
 ::: {.panel-tabset}
 
 ```{r}
