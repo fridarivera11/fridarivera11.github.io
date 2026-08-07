@@ -47,5 +47,19 @@
     "title": "UK baby names",
     "section": "",
     "text": "here are some words so that i have some words somewhere.\n\nlibrary(tidyverse)\n\n\nengland_wales_names &lt;- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2026/2026-06-16/england_wales_names.csv')\nni_names &lt;- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2026/2026-06-16/ni_names.csv')\nscotland_names &lt;- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2026/2026-06-16/scotland_names.csv')\n\n\nni_names |&gt;\n    filter(Name %in% c(\"Frida\", \"Frieda\", \"Frances\", \"Nathalie\", \"Natalie\", \"Sam\")) |&gt;\n    ggplot(aes(x =  Year, y = Number, shape = Sex)) +\n    geom_line(aes(color = Name)) +\n    geom_point(color = \"purple\") +\n    labs(title = \"Baby Names\")"
+  },
+  {
+    "objectID": "Oil&Gold/Oil&Gold.html",
+    "href": "Oil&Gold/Oil&Gold.html",
+    "title": "Market Indicators Explorer",
+    "section": "",
+    "text": "Tody we are measuring different market indicators using data from the Curated open data on GitHub\nCode\nlibrary(tidyverse)\nHere is each variable we are working with\nCode\ngold &lt;- readr::read_csv( 'https://raw.githubusercontent.com/datasets/gold-prices/refs/heads/main/data/monthly-processed.csv') |&gt;\n    rename(gold_price = Price)\n\n\noil &lt;- readr::read_csv('https://raw.githubusercontent.com/datasets/oil-prices/refs/heads/main/data/wti-monthly.csv') |&gt;\n    rename(oil_price = Price)\n\n\nnat_gas &lt;- readr::read_csv('https://raw.githubusercontent.com/datasets/natural-gas/refs/heads/main/data/monthly-processed.csv') |&gt;\n    rename(gas_price = Price)\n\n\nvix &lt;- readr::read_csv('https://raw.githubusercontent.com/datasets/finance-vix/refs/heads/main/data/vix-monthly.csv') |&gt;\n    rename(vol_index = Close)\n\n\nbond &lt;- readr::read_csv('https://raw.githubusercontent.com/datasets/bond-yields-us-10y/refs/heads/main/data/monthly.csv') |&gt;\n    rename(bond_rate = Rate)\n\n\ntemp &lt;- readr::read_csv('https://raw.githubusercontent.com/datasets/global-temp/refs/heads/main/data/monthly.csv') |&gt;\n    mutate(Date = lubridate::as_date(paste0(Year, \"-01\"))) |&gt;\n    rename(temp_diff = Mean) |&gt;\n    select(-Year, -Source)\n\n\nsp &lt;- readr::read_csv('https://raw.githubusercontent.com/datasets/s-and-p-500/refs/heads/main/data/data.csv') |&gt;\n    select(-PE10, -Dividend, -Earnings)\n\nfull_data &lt;- gold |&gt;\n    full_join(oil) |&gt;\n    full_join(nat_gas) |&gt;\n    full_join(vix) |&gt;\n    full_join(bond) |&gt;\n    full_join(temp) |&gt;\n    full_join(sp)\nCode\nfull_data |&gt;\n    select(Date, oil_price) |&gt;\n    drop_na() |&gt;\n    ggplot(aes(x = Date, y = oil_price)) +\n    geom_line() +\n    theme_bw()\nCode\nplot_ts &lt;- function(variable, log = TRUE) {\n    if(log){\n    full_data |&gt;\n    select(Date, {{ variable }}) |&gt;\n    drop_na() |&gt;\n    ggplot(aes(x = Date, y = {{ variable }})) +\n    geom_line() +\n    theme_bw() +\n    scale_y_log10()\n}else{\n    full_data |&gt;\n    select(Date, {{ variable }}) |&gt;\n    drop_na() |&gt;\n    ggplot(aes(x = Date, y = {{ variable }})) +\n    geom_line() +\n    theme_bw() \n}}\n\n\nplot_ts(oil_price, log = TRUE)\n\n\n\n\n\n\n\n\n\nCode\nplot_ts(oil_price, log = FALSE)"
+  },
+  {
+    "objectID": "Oil&Gold/Oil&Gold.html#using-shiny",
+    "href": "Oil&Gold/Oil&Gold.html#using-shiny",
+    "title": "Market Indicators Explorer",
+    "section": "Using Shiny",
+    "text": "Using Shiny\nI also played around with Shiny so the user could choose which variable to plot:"
   }
 ]

@@ -19,6 +19,8 @@ website:
             href: UK-baby-names.html
           - text: "Love Island USA"
             href: Love Island/love-island.html
+          - text: "Market Indicator Explorer"
+            href: Oil&Gold/Oil&Gold.html
 
 format:
   html:

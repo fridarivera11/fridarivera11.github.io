@@ -1,0 +1,105 @@
+---
+title: "Market Indicators Explorer"
+author: "Frida Rivera"
+date: August 6, 2026
+format:
+ html:
+   embed-resources: true
+   code-fold: true
+execute:
+ warning: false
+ message: false
+
+---
+Tody we are measuring different market indicators using data from the <a href = "https://github.com/datasets" target = "_blank">Curated open data on GitHub</a>
+
+
+```{r}
+library(tidyverse)
+```
+
+Here is each variable we are working with
+
+```{r}
+gold <- readr::read_csv( 'https://raw.githubusercontent.com/datasets/gold-prices/refs/heads/main/data/monthly-processed.csv') |>
+    rename(gold_price = Price)
+
+
+oil <- readr::read_csv('https://raw.githubusercontent.com/datasets/oil-prices/refs/heads/main/data/wti-monthly.csv') |>
+    rename(oil_price = Price)
+
+
+nat_gas <- readr::read_csv('https://raw.githubusercontent.com/datasets/natural-gas/refs/heads/main/data/monthly-processed.csv') |>
+    rename(gas_price = Price)
+
+
+vix <- readr::read_csv('https://raw.githubusercontent.com/datasets/finance-vix/refs/heads/main/data/vix-monthly.csv') |>
+    rename(vol_index = Close)
+
+
+bond <- readr::read_csv('https://raw.githubusercontent.com/datasets/bond-yields-us-10y/refs/heads/main/data/monthly.csv') |>
+    rename(bond_rate = Rate)
+
+
+temp <- readr::read_csv('https://raw.githubusercontent.com/datasets/global-temp/refs/heads/main/data/monthly.csv') |>
+    mutate(Date = lubridate::as_date(paste0(Year, "-01"))) |>
+    rename(temp_diff = Mean) |>
+    select(-Year, -Source)
+
+
+sp <- readr::read_csv('https://raw.githubusercontent.com/datasets/s-and-p-500/refs/heads/main/data/data.csv') |>
+    select(-PE10, -Dividend, -Earnings)
+
+full_data <- gold |>
+    full_join(oil) |>
+    full_join(nat_gas) |>
+    full_join(vix) |>
+    full_join(bond) |>
+    full_join(temp) |>
+    full_join(sp)
+
+
+```
+
+
+```{r}
+
+full_data |>
+    select(Date, oil_price) |>
+    drop_na() |>
+    ggplot(aes(x = Date, y = oil_price)) +
+    geom_line() +
+    theme_bw()
+
+```
+
+```{r}
+
+plot_ts <- function(variable, log = TRUE) {
+    if(log){
+    full_data |>
+    select(Date, {{ variable }}) |>
+    drop_na() |>
+    ggplot(aes(x = Date, y = {{ variable }})) +
+    geom_line() +
+    theme_bw() +
+    scale_y_log10()
+}else{
+    full_data |>
+    select(Date, {{ variable }}) |>
+    drop_na() |>
+    ggplot(aes(x = Date, y = {{ variable }})) +
+    geom_line() +
+    theme_bw() 
+}}
+
+
+plot_ts(oil_price, log = TRUE)
+plot_ts(oil_price, log = FALSE)
+```
+
+## Using Shiny
+
+I also played around with Shiny so the user could choose which variable to plot:
+
+<iframe src="https://019fdd7a-0f99-982e-6893-85608fd3a282.share.connect.posit.cloud/" width="100%" height="800"   style="border: none;" data-external="1"></iframe>
