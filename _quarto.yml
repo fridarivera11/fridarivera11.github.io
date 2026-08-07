@@ -12,15 +12,15 @@ website:
       - text: "Projects"
         menu:
           - text: "Ship Wrecks"
-            href: Ship Wrecks/ship-wrecks.html
+            href: ship-wrecks.html
           - text: "Parental Leave"
-            href: Parental Leave/parental-leave.html
+            href: parental-leave.html
           - text: "UK Baby Names"
-            href: UK Baby Names/UK-baby-names.html
+            href: UK-baby-names.html
           - text: "Love Island USA"
-            href: Love Island/love-island.html
+            href: love-island.html
           - text: "Market Indicator Explorer"
-            href: Oil&Gold/Oil&Gold.html
+            href: market.html
 
 format:
   html:
