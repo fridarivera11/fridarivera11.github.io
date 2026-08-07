@@ -12,11 +12,11 @@ website:
       - text: "Projects"
         menu:
           - text: "Ship Wrecks"
-            href: ship-wrecks.html
+            href: Ship Wrecks/ship-wrecks.html
           - text: "Parental Leave"
-            href: parental-leave.html
+            href: Parental Leave/parental-leave.html
           - text: "UK Baby Names"
-            href: UK-baby-names.html
+            href: UK Baby Names/UK-baby-names.html
           - text: "Love Island USA"
             href: Love Island/love-island.html
           - text: "Market Indicator Explorer"
