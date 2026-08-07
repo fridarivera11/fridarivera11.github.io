@@ -7,10 +7,10 @@ format:
    embed-resources: true
    code-fold: true
 execute:
- warning: false
- message: false
-
+  warning: false
+  message: false
 ---
+
 Tody we are measuring different market indicators using data from the <a href = "https://github.com/datasets" target = "_blank">Curated open data on GitHub</a>
 
 

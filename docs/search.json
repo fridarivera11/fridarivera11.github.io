@@ -75,5 +75,12 @@
     "title": "Wreck Inventory in Ireland",
     "section": "",
     "text": "Code\nlibrary(tidyverse)\nlibrary(praise)\n\n\n\n\nCode\nwreck_inventory &lt;- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2026/2026-06-30/wreck_inventory.csv')|&gt;\n    mutate(year2 = as.numeric(str_extract(descriptive_date, \"\\\\d{4}\"))) |&gt;\n    mutate(century = floor(year2 / 100) * 100)\n\n\n\n\nCode\nwreck_inventory |&gt;\n    ggplot(aes(x = classification)) + \n    geom_bar()\n\n\n\n\n\n\n\n\n\n\n\nCode\nwreck2 &lt;- wreck_inventory |&gt;\n    group_by(classification) |&gt;\n    mutate(count = n()) |&gt;\n    filter(count &gt;= 50) |&gt;\n    filter(classification != \"Unknown\")\n\n\n\n\nCode\nwreck2 |&gt;\n    ggplot(aes(x = classification, fill = classification)) +\n    geom_bar() +\n    labs(x = \"\", y = \"\") +\n    theme_minimal() +\n    theme(axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1),\n        legend.position = \"none\") +\n    facet_wrap(~century)\n\n\n\n\n\n\n\n\n\n\n\nCode\nwreck_inventory |&gt;\n count(wreck_name) |&gt;        \n filter(n &gt; 50) |&gt;\n filter(wreck_name != \"Unknown\") |&gt;\n mutate(n_dots = n %/% 10) |&gt;\n uncount(n_dots)  |&gt;\n     ggplot(aes(x = wreck_name)) +\n   geom_dotplot(binwidth = .5) +\n   coord_flip()\n\n\n\n\n\n\n\n\n\n\n\nCode\npraise()\n\n\n[1] \"You are cat's pajamas!\""
+  },
+  {
+    "objectID": "Parental Leave/parental-leave.html",
+    "href": "Parental Leave/parental-leave.html",
+    "title": "European Parental Leave Policies",
+    "section": "",
+    "text": "Code\nlibrary(tidyverse)\nlibrary(sf)\nlibrary(rnaturalearth)\nlibrary(gganimate)\nlibrary(magick)\n\n\n\n\nCode\neplp &lt;- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2026/2026-06-02/eplp.csv')\n\n\n\n\nCode\neurope &lt;- ne_countries(continent = \"europe\", returnclass = \"sf\")\nyrs &lt;- sort(unique(eplp$year))\n\np &lt;- europe |&gt;\n    mutate(country2 = ifelse(iso_a2_eh == \"GB\", \"UK\", iso_a2_eh)) |&gt;\n    tidyr::expand_grid(year = yrs) |&gt;\n    st_as_sf() |&gt;\n    left_join(eplp, by = c(\"country2\" = \"country\", \"year\")) |&gt;\n    ggplot() +\n    geom_sf(aes(fill = jp_ld_m)) +\n    coord_sf(xlim = c(-10, 45), ylim = c(27, 82)) +\n    transition_states(year, transition_length = 0, state_length = 4) +\n    labs(title = \"Year: {closest_state}\")\n\nanimate(p)"
   }
 ]
