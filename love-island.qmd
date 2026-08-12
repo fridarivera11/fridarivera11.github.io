@@ -97,7 +97,7 @@ li_data <- paste0("https://en.wikipedia.org/wiki/Love_Island_USA_season_", 1:8) 
   select(x, y, season)
 
 
-write_csv(li_data,"li_data.csv")
+#write_csv(li_data,"li_data.csv")
 
 ```
 
