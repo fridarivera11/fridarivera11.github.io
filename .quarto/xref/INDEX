@@ -31,5 +31,29 @@
   },
   "Parental Leave/parental-leave.qmd": {
     "parental-leave.html": "851e579a"
+  },
+  "qmd files/love-island.qmd": {
+    "love-island.html": "089c4f91"
+  },
+  "qmd files/market.qmd": {
+    "market.html": "dded32fe"
+  },
+  "qmd files/parental-leave.qmd": {
+    "parental-leave.html": "3a8e9fed"
+  },
+  "qmd files/ship-wrecks.qmd": {
+    "ship-wrecks.html": "1cef3930"
+  },
+  "qmd files/uk-baby names.qmd": {
+    "uk-baby names.html": "d9a05a9a"
+  },
+  "love-island.qmd": {
+    "love-island.html": "586bc1aa"
+  },
+  "market-index.qmd": {
+    "market-index.html": "96f54148"
+  },
+  "uk-baby-names.qmd": {
+    "uk-baby-names.html": "9f63b74e"
   }
 }

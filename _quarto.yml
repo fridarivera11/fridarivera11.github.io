@@ -16,11 +16,11 @@ website:
           - text: "Parental Leave"
             href: parental-leave.html
           - text: "UK Baby Names"
-            href: UK-baby-names.html
+            href: uk-baby-names.html
           - text: "Love Island USA"
             href: love-island.html
           - text: "Market Indicator Explorer"
-            href: market.html
+            href: market-index.html
 
 format:
   html:
