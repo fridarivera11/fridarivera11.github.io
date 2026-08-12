@@ -152,5 +152,26 @@
     "title": "Market Indicators Explorer",
     "section": "Using Shiny",
     "text": "Using Shiny\nI also played around with Shiny so the user could choose which variable to plot:"
+  },
+  {
+    "objectID": "foundation-shades.html",
+    "href": "foundation-shades.html",
+    "title": "Foundation Shades",
+    "section": "",
+    "text": "Code\nlibrary(tidyverse)"
+  },
+  {
+    "objectID": "foundation-shades.html#hex-code-collection",
+    "href": "foundation-shades.html#hex-code-collection",
+    "title": "Foundation Shades",
+    "section": "Hex Code Collection",
+    "text": "Hex Code Collection\n\n\nCode\n# Haus Labs\nhex &lt;- c(\"#3F1E0B\", \"#4B2511\", \"#6A3E32\", \"#6D3D33\", \"#8A5B2D\", \"#6F3A0E\", \"#6D3C22\", \"#7B4D3D\", \"#6E3D33\", \"#5A352F\", \"#5C2E2E\", \"#8E5D1F\", \"#7E4C2F\", \"#9E622E\", \"#B36F43\", \"#A36A5A\", \"#A66D4B\", \"#B67E5F\", \"#7F4A2B\", \"#B57B5B\", \"#B68D71\", \"#B98B6E\", \"#C69A7E\", \"#CDA28B\", \"#C79A7A\", \"#C49B7C\", \"#C8A88D\", \"#C9A18D\", \"#D1B29B\", \"#D7B8A5\", \"#D7BCA8\", \"#E4C3B0\", \"#DDB9A8\", \"#D6B3A4\", \"#DCC0B2\", \"#D2B3A7\", \"#D6BBAE\", \"#D7BBAE\", \"#E3C1B3\", \"#E7C7B6\", \"#E7C4B2\", \"#EBC7B0\", \"#E7C7B0\", \"#EBC7B0\", \"#F4D1BC\", \"#F3D6C1\", \"#F0D2B7\", \"#F0D2B7\", \"#F6D8BC\", \"#F6D9C0\", \"#F6D8BC\", \"#F6D8BC\", \"#F6D8BC\", \"#F2E6E3\") \n\nbrand &lt;- rep(\"Haus Labs\", length(hex)) \nproduct &lt;- rep(\"Triclone Skin Tech Foundation\", length(hex)) \n\ndf_HL &lt;- data.frame(hex = hex, brand = brand, product = product) \n\n\n# Charlotte Tilbury\ndf_CT &lt;- data.frame(\n  hex = c(\n    \"#F0DCCB\", \"#E8CDBB\", \"#D3A773\", \"#E7BFA9\",\n    \"#DCC6AB\", \"#D5A37F\", \"#E5BDA5\", \"#D7B27A\",\n    \"#E0B69C\", \"#B47C52\", \"#D3A58E\", \"#A8795C\"\n  ),\n  brand = rep(\"Charlotte Tilbury\", 12),\n  product = rep(\"Hollywood Flawless Filter\", 12)\n)\n\n# Armani\ndf_A &lt;- data.frame(\n  hex = c(\n    \"#E6B98E\", \"#E3B68F\", \"#E0B57F\", \"#DDAA72\",\n    \"#E5B58E\", \"#E0B17C\", \"#DDB38A\", \"#D5A77C\",\n    \"#D8A879\", \"#D7A97E\", \"#D2A278\", \"#C99A6D\",\n    \"#D19C6B\", \"#D0A17D\", \"#C89A67\", \"#CD9C74\",\n    \"#C69A6E\", \"#C98551\", \"#C99367\", \"#C79365\",\n\n    \"#BD8B61\", \"#C78B60\", \"#B98253\", \"#B67846\",\n    \"#C38B65\", \"#A9784E\", \"#B47C54\", \"#B57B4B\",\n    \"#C58C69\", \"#AA794E\", \"#9F6B3F\", \"#A66E45\",\n    \"#A8734C\", \"#9E693F\", \"#8F5A32\", \"#925F3E\",\n    \"#9A623C\", \"#8C4C29\", \"#8D5C3E\", \"#885B3F\",\n\n    \"#875A3E\", \"#805137\", \"#673B29\", \"#6B4030\"\n  ),\n  brand = rep(\"Armani\", 44),\n  product = rep(\"Luminous Silk\", 44))\n\n\n# Fenty\nhex_codes &lt;- c(\n \"#492E1D\", \"#502C1C\", \"#58361F\", \"#552F20\", \"#653F28\",\n \"#663F27\", \"#7C5437\", \"#81512E\", \"#96603D\", \"#835332\",\n \"#99623E\", \"#A46F45\", \"#976239\", \"#9E6231\", \"#A46E43\",\n \"#C08660\", \"#B98353\", \"#AD7D52\", \"#B88450\", \"#B68558\",\n \"#CA9561\", \"#C99564\", \"#CA9464\", \"#C3966C\", \"#D1A77A\",\n \"#D8B385\", \"#DEB38D\", \"#CEAA81\", \"#D7AB85\", \"#DCB286\",\n \"#D3AA86\", \"#D3A671\", \"#D8B092\", \"#E0BB92\", \"#E5BC99\",\n \"#D9B08A\", \"#E1BE9F\", \"#EAC69E\", \"#E9C59D\", \"#D6B591\",\n \"#E4C1A8\", \"#F0D0AE\", \"#EAD5BD\", \"#EDD5BA\", \"#E7CA96\",\n \"#EDD5BA\", \"#DCBC9B\", \"#F9E3D1\", \"#F9E7DC\", \"#F9E7DE\"\n)\n \ndf_F &lt;- data.frame(\n hex = hex_codes,\n brand = \"Fenty Beauty\",\n product = \"Pro Filt\\u2019r Soft Matte  Foundation\")\n \n\n\n\n\nmakeup &lt;- rbind(df_HL, df_CT, df_A, df_F)"
+  },
+  {
+    "objectID": "foundation-shades.html#waffle-plot",
+    "href": "foundation-shades.html#waffle-plot",
+    "title": "Foundation Shades",
+    "section": "Waffle Plot",
+    "text": "Waffle Plot\n\n\nCode\ndf_plot &lt;- makeup |&gt;\n  group_by(brand) |&gt;\n  mutate(\n    id = row_number(),\n    x = (id - 1) %% 10,\n    y = (id - 1) %/% 10,\n    hex = sort(hex)\n  ) |&gt;\n  ungroup()\n\nggplot(df_plot, aes(x = x, y = -y)) +\n  geom_tile(\n    aes(fill = hex),\n    width = 0.95,\n    height = 0.95\n  ) +\n  facet_wrap(~ brand) +\n  scale_fill_identity() +\n  coord_equal() +\n  theme_void() +\n  theme(\n    strip.text = element_text(\n      size = 14,\n      face = \"bold\"\n    ),\n    panel.spacing = unit(2, \"lines\")\n  )"
   }
 ]

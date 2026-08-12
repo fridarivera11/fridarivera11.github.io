@@ -21,6 +21,8 @@ website:
             href: love-island.html
           - text: "Market Indicator Explorer"
             href: market-index.html
+          - text: "Foundation Shades"
+            href: foundation-shades.html
 
 format:
   html:
